@@ -1,10 +1,16 @@
-provider "aws" {
- # project = "Terraform-lab"
-  region  = "ca-central-1"
-  access_key = "AKIAYTJV7PCTXW76Y5FC"
-  secret_key = "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"
-}
+terraform {
 
+ required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.0"
+    }
+  }
+
+  provider "aws" {
+    region     = "ca-central-1"
+   }
+}
 
 #Creates a VPC
 resource "aws_vpc" "terraform_lab" {
